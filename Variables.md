@@ -1,5 +1,6 @@
 # Keys disponibles
 
+<div align="center">Google Maps</div>
 
 ## Variables / Keys de negocios (metadata_sitios)
 - Nombre
@@ -24,6 +25,8 @@
 - Reseña
 - url de pics (fotos)
 - id_mapa
+
+<div align="center">Google Maps</div>
 
 # Variables / Keys  del comercio (business.pkl)
 - ID business
