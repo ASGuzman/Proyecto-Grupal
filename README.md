@@ -17,10 +17,10 @@ Variables / Keys de Google maps (Lugares)
 - url de busqueda
   
 Variables / Keys de Google maps (Usuarios)
--ID usuario
--Nombre
--Hora (timespan)
--Score
--Reseña
--url de pics (fotos)
+- ID usuario
+- Nombre
+- Hora (timespan)
+- Score
+- Reseña
+- url de pics (fotos)
 - id_mapa
