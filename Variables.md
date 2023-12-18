@@ -1,6 +1,6 @@
-#Keys disponibles
+# Keys disponibles
 
-                                                                             Google Maps
+<div align="Google Maps">Tu Título Centrado</div>
 ## Variables / Keys de negocios (metadata_sitios)
 - Nombre
 - Dirección
@@ -24,9 +24,10 @@
 - Reseña
 - url de pics (fotos)
 - id_mapa
+- 
+<div align="Yelp">Tu Título Centrado</div>
 
-                                                                            Yelp
-## Variables / Keys  del comercio (business.pkl)
+# Variables / Keys  del comercio (business.pkl)
 - ID business
 - Nombre negocio
 - Direccion completa del negocio
