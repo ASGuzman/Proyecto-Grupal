@@ -15,6 +15,7 @@ Variables / Keys de Google maps (Lugares)
 - Miscelanio
 - Estado actual (Abierto o cerrado) + Hora
 - url de busqueda
+  
 Variables / Keys de Google maps (Usuarios)
 -ID usuario
 -Nombre
