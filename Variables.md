@@ -26,7 +26,7 @@
 - url de pics (fotos)
 - id_mapa
 
-<div align="center">Google Maps</div>
+<div align="center">Yelp</div>
 
 # Variables / Keys  del comercio (business.pkl)
 - ID business
