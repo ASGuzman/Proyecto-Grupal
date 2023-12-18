@@ -1,7 +1,7 @@
 #Keys disponibles
 
                                                                              Google Maps
-Variables / Keys de negocios (metadata_sitios)
+## Variables / Keys de negocios (metadata_sitios)
 - Nombre
 - Dirección
 - id_mapa (Primary Key)
@@ -16,7 +16,7 @@ Variables / Keys de negocios (metadata_sitios)
 - Estado actual (Abierto o cerrado) + Hora
 - url de busqueda
   
-Variables / Keys de reseñas (review-estados )
+## Variables / Keys de reseñas (review-estados )
 - ID usuario
 - Nombre
 - Hora (timespan)
@@ -26,7 +26,7 @@ Variables / Keys de reseñas (review-estados )
 - id_mapa
 
                                                                             Yelp
-Variables / Keys  del comercio (business.pkl)
+## Variables / Keys  del comercio (business.pkl)
 - ID business
 - Nombre negocio
 - Direccion completa del negocio
@@ -41,7 +41,7 @@ Variables / Keys  del comercio (business.pkl)
 - Atributos del negocio
 - Categoria negocio
 - Horario
-Variables / Keys de reseñas (review.json)
+## Variables / Keys de reseñas (review.json)
 - ID review
 - ID usuario
 - ID business
@@ -51,7 +51,7 @@ Variables / Keys de reseñas (review.json)
 - Votos reseñas util
 - Votos reseña graciosa
 - Votos reseña cool
-Variables / Keys de usuario (user.parquet)
+## Variables / Keys de usuario (user.parquet)
 - ID usuario
 - Nombre usuario
 - Numero de reseñas escritas
@@ -74,10 +74,12 @@ Variables / Keys de usuario (user.parquet)
 - Total de cumplidos graciosos recibidos por el usuario
 - Número de complidos escritos recibidos por el usuario
 - Número de cumplidos en foto recibidos por el usuario
-Variables / Keys de registros asociados al negocio (checkin.json )
+  
+## Variables / Keys de registros asociados al negocio (checkin.json )
 - ID business
 - Fechas de registro
-Variables / Keys de consejos o tips dados por el usuario (tip.json)
+
+## Variables / Keys de consejos o tips dados por el usuario (tip.json)
 - Texto del tip
 - Fecha de cuando se escribio
 - Cumplidos totales
