@@ -1,5 +1,4 @@
-# Proyecto-Grupal
-Este es el proyecto grupal del Grupo 7
+#Keys disponibles
 
 Variables / Keys de Google maps (Lugares)
 - Nombre
