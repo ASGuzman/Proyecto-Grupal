@@ -16,9 +16,9 @@
    - Meta: Proporcionar datos estratégicos para la toma de decisiones sobre la apertura de nuevos locales.
 
 ## KPIs
-1. Porcentaje de Reseñas Positivas (PRP):
-   - Fórmula: PRP = (Número de reseñas positivas / Total de reseñas) * 100.
-   - Descripción: Medir la positividad de las experiencias compartidas por los clientes y establecer la meta de incrementar el PRP en un 2% cada trimestre hasta alcanzar el 90%.
+1. Porcentaje de Reseñas Negativas (PRN):
+   - Fórmula: PRP = (Número de reseñas negativas / Total de reseñas) * 100.
+   - Descripción: Medir la negatividad de las experiencias compartidas por los clientes y establecer la meta de reducir el PRN en un 2% cada trimestre hasta alcanzar el 50%.
 
 2. Índice de Satisfacción de Clientes (ISC):
    - Fórmula: ISC = (Cantidad de reseñas positivas de clientes / Total de reseñas positivas de clientes) * 100.
