@@ -15,6 +15,9 @@
    - Descripción: Identificar áreas geográficas y nichos de mercado específicos que representen oportunidades de expansión para nuevos restaurantes.
    - Meta: Proporcionar datos estratégicos para la toma de decisiones sobre la apertura de nuevos locales.
 
+## Alcance
+A partir de los datos de Yelp, se llevó a cabo un exhaustivo análisis y recuento de las diferentes categorías presentes en los negocios registrados. Se identificó que la categoría más predominante en estos    establecimientos es la de "Restaurantes". Con el fin de priorizar y focalizar el estudio en las regiones más significativas, se aplicó el principio de la ley de Pareto, seleccionando aquellos estados que representaban el 80% de la información disponible dentro de la categoría de restaurantes. De esta manera, se optó por trabajar específicamente con los 7 estados que emergieron como los más relevantes dentro de esta categoría, permitiendo así un análisis más detallado y significativo en esos ámbitos geográficos particulares.
+
 ## KPIs
 1. Porcentaje de Reseñas Negativas (PRN):
    - Fórmula: PRP = (Número de reseñas negativas / Total de reseñas) * 100.
