@@ -15,17 +15,17 @@ Estamos conformados por
 <div id='id0' />
 
 ## Índice
-1. [PROPUESTA DE TRABAJO](#id1)
-2. [DATA ENGINEERING ](#id2)
-3. [DATA SCIENCE & ANALYTICS](#id3)
-4. [DOCUMENTOS ADICIONALES](#id4)
-5. [CLONA ESTE REPOSITORIO](#id5)
-6. [AUTORES](#id6)
+1. [Propuesta de Trabajo](#id1)
+2. [Data Engineering](#id2)
+3. [Data Science & Analytics](#id3)
+4. [Documentos Adicionales](#id4)
+5. [Clona este repositorio](#id5)
+6. [Autores](#id6)
 
 
 <div id='id1' />
 
-## PROPUESTA DE TRABAJO 
+## Propuesta de Trabajo
 
 
 Toda la documentación asociada a la Propuesta de Trabajo se encuentra en la Carpeta denominada [Sprint 1](Sprint1).
@@ -55,7 +55,7 @@ Allí encontrán un pdf con  el alcance, objetivos, roles del equipo, metodolog�
 <div id='id2' />  
 
  
-## DATA ENGINEERING   
+## Data Engineering   
 Toda la documentación asociada al Data Engineering se encuentra en la Carpeta denominada [Sprint 2](Sprint2).
   
 
@@ -64,7 +64,7 @@ Toda la documentación asociada al Data Engineering se encuentra en la Carpeta d
 <div id='id3' />  
 
  
-## DATA SCIENCE & ANALYTICS
+## Data Science & Analytics
   
 
 [volver al índice](#id0)
@@ -73,7 +73,7 @@ Toda la documentación asociada al Data Engineering se encuentra en la Carpeta d
 <div id='id4' />
 
  
-## DOCUMENTOS ADICIONALES
+## Documentos Adicionales
 * [Diccionario de datos]()
   
 [volver al índice](#id0)
@@ -82,7 +82,7 @@ Toda la documentación asociada al Data Engineering se encuentra en la Carpeta d
 <div id='id5' />    
 
  
-## CLONA ESTE REPOSITIORIO 👍
+## Clona este repositorio 👍
 Explora nuestro proyecto clonandolo en tu computadora 
 
 ```bash
