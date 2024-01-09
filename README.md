@@ -20,6 +20,7 @@ Estamos conformados por
 3. [DATA SCIENCE & ANALYTICS](#id3)
 4. [DOCUMENTOS ADICIONALES](#id4)
 5. [CLONA ESTE REPOSITORIO](#id5)
+6. [AUTORES](#id6)
 
 
 <div id='id1' />
@@ -55,7 +56,7 @@ Allí encontrán un pdf con  el alcance, objetivos, roles del equipo, metodolog�
 
  
 ## DATA ENGINEERING   
-Toda la documentación asociada al Data Engineering se encuentra en la Carpeta denominada Sprint 2.
+Toda la documentación asociada al Data Engineering se encuentra en la Carpeta denominada [Sprint 2](Sprint2).
   
 
 [volver al índice](#id0)
@@ -91,8 +92,8 @@ git clone https://github.com/JorgeJola/Proyecto-Grupal.git
 [volver al índice](#id0)  
     
 
+  
 <div id='id6' />  
-
  
 ## Autores   
 Aylén Sol Guzman, Data Scientist - [@ASGuzman](https://github.com/ASGuzman)  
