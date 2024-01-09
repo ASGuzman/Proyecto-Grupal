@@ -1,13 +1,16 @@
 <h2 align = center > 
 
-![DATASEVEN](https://github.com/JorgeJola/Proyecto-Grupal/assets/113150003/235eb51a-b6af-4d6d-a33a-3c6bb013389e)  </h2>
+![image](https://github.com/JorgeJola/Proyecto-Grupal/assets/113150003/b81e527a-c73c-4e82-aa8c-54688d9e7684)
+ </h2>
 
 
 Somos Data Seven Solution Consultant, una consultora ficticia especializada en análisis de datos. En el presente proyecto se lleva a cabo un análisis exhaustivo de las opiniones presentes en las plataformas de Google My Business y Yelp. El propósito de esta investigación es sumergirse en el vasto universo de opiniones proporcionadas por estos dos gigantes, con el fin de extraer conocimientos valiosos a través del análisis de sentimientos. Además, se persigue la creación de un sistema de recomendación que no solo comprenda la experiencia del usuario, sino que también tenga la capacidad de anticipar sus preferencias futuras.
 
 Este análisis de datos nos capacita para ofrecer evaluaciones detalladas basadas en la información recopilada. Así, brindamos asesoría y recomendaciones a posibles inversores hipotéticos interesados en este proyecto, proporcionando información altamente valiosa para la toma de decisiones estratégicas. Además, nuestra labor contribuye a mejorar la imagen y reputación del negocio bajo consulta, fortaleciendo su posición en el mercado.
 
-## QUIENES SOMOS
+Estamos conformados por
+
+![image](https://github.com/JorgeJola/Proyecto-Grupal/assets/113150003/c5f48ee9-9c1d-4a82-8b85-79415c09b0d9)
 
 
 
@@ -18,43 +21,13 @@ Este análisis de datos nos capacita para ofrecer evaluaciones detalladas basada
 
 <div id='id1' />
 
-## INTRODUCCIÓN
-
-En la era digital, la toma de decisiones respecto a dónde comer, comprar o disfrutar de servicios se ha transformado significativamente. Plataformas como Google y Yelp se han convertido en referentes fundamentales para usuarios en búsqueda de experiencias auténticas y recomendaciones confiables. 
-
-Las opiniones se han transformado en monedas de gran valor. Los comentarios y calificaciones no solo reflejan la calidad de un negocio, sino que también influyen en la toma de decisiones de otros usuarios. La importancia de las reseñas radica en su capacidad para proporcionar una visión auténtica y personalizada, guiando a los consumidores hacia elecciones informadas y satisfactorias.
-
-El análisis de sentimientos se convierte en la herramienta clave para desentrañar las emociones y percepciones expresadas en estas reseñas. A través de esta metodología, se busca comprender no solo la satisfacción o insatisfacción general de los usuarios, sino también los matices emocionales que pueden revelar aspectos más profundos de la experiencia.
-
-Con el análisis de sentimientos como base, el proyecto busca construir un sistema de recomendación inteligente. Este sistema no solo se limitará a sugerir lugares similares a los que han recibido reseñas positivas, sino que también considerará las preferencias individuales de los usuarios, ofreciendo recomendaciones personalizadas que se alineen con sus gustos y expectativas únicas.
-
-
-En resumen, este proyecto se sumerge en el universo de opiniones que estos dos gigantes ofrecen, buscando extraer conocimientos valiosos mediante análisis de sentimientos y la creación de un sistema de recomendación el cual pretende no solo entender la experiencia del usuario, sino también anticipar sus preferencias futuras.
-
-<div id='id2' />
-## QUIENES SOMOS
-
-
 ## PROPUESTA DE TRABAJO
-### Objetivos 
-1. Análisis Integral de Presencia y Reputación:
-   - Descripción: Evaluar la presencia y reputación de negocios de la categoría de restaurantes en Yelp y Google Maps en los estados seleccionados.
-   - Meta: Obtener una comprensión completa de la distribución geográfica y la relevancia de los restaurantes en las plataformas.
 
-2. Desarrollo de un Sistema de Análisis Predictivo:
-   - Descripción: Implementar un sistema que utilice técnicas de análisis predictivo para anticipar tendencias y comportamientos del mercado gastronómico.
-   - Meta: Proporcionar a los stakeholders herramientas predictivas para la toma de decisiones estratégicas.
 
-3. Creación de un Dashboard Interactivo y Personalizable:
-   - Descripción: Desarrollar un dashboard interactivo que permita a los usuarios explorar datos, filtrar información y obtener insights visuales.
-   - Meta: Facilitar el acceso a información clave de manera intuitiva y personalizada.
+Toda la documentación asociada a la Propuesta de Trabajo se encuentra en la Carpeta denominada [Sprint 1](EDA_Yelp.ipynb).
 
-4. Identificación de Oportunidades de Expansión:
-   - Descripción: Identificar áreas geográficas y nichos de mercado específicos que representen oportunidades de expansión para nuevos restaurantes.
-   - Meta: Proporcionar datos estratégicos para la toma de decisiones sobre la apertura de nuevos locales.
+Allí encontrán un pdf con  el alcance, objetivos, roles del equipo, metodología de trabajo y stack tecnologico a utilizar en el proyecto. También podrán encontrar un EDA preliminar para los datos de Google Maps y Yelp, y la presentación de la Demo 1.
 
-## Alcance
-A partir de los datos de Yelp, se llevó a cabo un exhaustivo análisis y recuento de las diferentes categorías presentes en los negocios registrados. Se identificó que la categoría más predominante en estos    establecimientos es la de "Restaurantes". Con el fin de priorizar y focalizar el estudio en las regiones más significativas, se aplicó el principio de la ley de Pareto, seleccionando aquellos estados que representaban el 80% de la información disponible dentro de la categoría de restaurantes. De esta manera, se optó por trabajar específicamente con los 7 estados que emergieron como los más relevantes dentro de esta categoría, permitiendo así un análisis más detallado y significativo en esos ámbitos geográficos particulares.
 
 
 ## KPIs
