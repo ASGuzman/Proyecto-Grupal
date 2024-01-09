@@ -24,7 +24,7 @@ Estamos conformados por
 ## PROPUESTA DE TRABAJO
 
 
-Toda la documentación asociada a la Propuesta de Trabajo se encuentra en la Carpeta denominada [Sprint 1](EDA_Yelp.ipynb).
+Toda la documentación asociada a la Propuesta de Trabajo se encuentra en la Carpeta denominada [Sprint 1](Sprint1/EDA_Yelp.ipynb).
 
 Allí encontrán un pdf con  el alcance, objetivos, roles del equipo, metodología de trabajo y stack tecnologico a utilizar en el proyecto. También podrán encontrar un EDA preliminar para los datos de Google Maps y Yelp, y la presentación de la Demo 1.
 
