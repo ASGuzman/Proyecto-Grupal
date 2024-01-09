@@ -18,8 +18,8 @@ Estamos conformados por
 1. [PROPUESTA DE TRABAJO](#id1)
 2. [DATA ENGINEERING ](#id2)
 3. [DATA SCIENCE & ANALYTICS](#id3)
-4. [DOCUMENTOS ADICIONALES](#id3)
-5. [CLONA ESTE REPOSITORIO](#id4)
+4. [DOCUMENTOS ADICIONALES](#id4)
+5. [CLONA ESTE REPOSITORIO](#id5)
 
 
 <div id='id1' />
@@ -31,35 +31,64 @@ Toda la documentación asociada a la Propuesta de Trabajo se encuentra en la Car
 
 Allí encontrán un pdf con  el alcance, objetivos, roles del equipo, metodología de trabajo y stack tecnologico a utilizar en el proyecto. También podrán encontrar un EDA preliminar para los datos de[Yelp](Sprint1/EDA_Yelp.ipynb) y [Google Maps](Sprint1/EDa_GoogleMaps.ipynb), y la [presentación](Sprint1/Presentacion_spring1.pdf) de la Demo 1.
 
+   
+### ¿Como lo hicimos Posible? 
+  
+1- Almacenamiento de datos crudos en el servicio en la nube Google Cloud Storage
 
-Para la puesta en marcha del proyecto se utilizará la nube GCP, de la siguiente manera:
+2- Extracción y transformación de datos con python usando Cloud Functions.
+
+3- Análisis de datos en la nube con BigQuery
+
+4- Modelos de Machine Learning con las librerias de Scikit-learn, Keras y TensorFlow, deployados con la libreria Streamlit
+
+5- Visualización y reportes con Google Data Looker conectado desde BigQuery
+
 ![image](https://github.com/JorgeJola/Proyecto-Grupal/assets/113150003/f2c76ade-e9e2-4cc6-ae85-b58158e49750)
 
+  
+[volver al índice](#id0)
 
-[volver al inicio](#id0)
 
+  
 <div id='id2' />
 ## DATA ENGINEERING 
+Toda la documentación asociada al Data Engineering se encuentra en la Carpeta denominada Sprint 2.
+  
 
-
- 
+[volver al índice](#id0)
+   
 <div id='id3' />
 ## DATA SCIENCE & ANALYTICS
+  
 
+[volver al índice](#id0)
+
+    
+<div id='id4' />    
 ## DOCUMENTOS ADICIONALES
 * [Diccionario de datos]()
+  
+[volver al índice](#id0)
+  
 
+<div id='id5' />    
 ## CLONA ESTE REPOSITIORIO 👍
 Explora nuestro proyecto clonandolo en tu computadora 
 
 ```bash
 git clone https://github.com/JorgeJola/Proyecto-Grupal.git
 ```
+  
+[volver al índice](#id0)  
+    
 
-## Autores 👥🖋️
+<div id='id6' />    
+## Autores   
 Aylén Sol Guzman, Data Scientist - [@ASGuzman](https://github.com/ASGuzman)  
 Maria Marcela Diaz, Data Analyst - [@]()  
 Priscila Muñiz, Data Analyst - [@priscilamuniz](https://github.com/priscilamuniz)   
 Jorge Andres Jola Hernandez, Data Engineer  - [@JorgeJola](https://github.com/JorgeJola)  
 Franco Dylan Damian Luna Pedroso, Data Engineer - [@]() 
 
+[volver al índice](#id0)
