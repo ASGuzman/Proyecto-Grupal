@@ -12,16 +12,19 @@ Estamos conformados por
 
 ![image](https://github.com/JorgeJola/Proyecto-Grupal/assets/113150003/c5f48ee9-9c1d-4a82-8b85-79415c09b0d9)
 
-
+<div id='id0' />
 
 ## Índice
-1. [INTRODUCCIÓN](#id1)
+1. [PROPUESTA DE TRABAJO](#id1)
 2. [DATA ENGINEERING ](#id2)
+3. [DATA SCIENCE & ANALYTICS](#id3)
+4. [DOCUMENTOS ADICIONALES](#id3)
+5. [CLONA ESTE REPOSITORIO](#id4)
 
 
 <div id='id1' />
 
-## PROPUESTA DE TRABAJO
+## PROPUESTA DE TRABAJO 
 
 
 Toda la documentación asociada a la Propuesta de Trabajo se encuentra en la Carpeta denominada [Sprint 1](Sprint1).
@@ -33,9 +36,14 @@ Para la puesta en marcha del proyecto se utilizará la nube GCP, de la siguiente
 ![image](https://github.com/JorgeJola/Proyecto-Grupal/assets/113150003/f2c76ade-e9e2-4cc6-ae85-b58158e49750)
 
 
+[volver al inicio](#id0)
 
+<div id='id2' />
 ## DATA ENGINEERING 
 
+
+ 
+<div id='id3' />
 ## DATA SCIENCE & ANALYTICS
 
 ## DOCUMENTOS ADICIONALES
