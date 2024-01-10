@@ -8,9 +8,9 @@ Somos Data Seven Solution Consultant, una consultora ficticia especializada en a
 
 Este análisis de datos nos capacita para ofrecer evaluaciones detalladas basadas en la información recopilada. Así, brindamos asesoría y recomendaciones a posibles inversores hipotéticos interesados en este proyecto, proporcionando información altamente valiosa para la toma de decisiones estratégicas. Además, nuestra labor contribuye a mejorar la imagen y reputación del negocio bajo consulta, fortaleciendo su posición en el mercado.
 
-Estamos conformados por
+<h3 align = center> 
 
-![image](https://github.com/JorgeJola/Proyecto-Grupal/assets/113150003/c5f48ee9-9c1d-4a82-8b85-79415c09b0d9)
+![image](https://github.com/JorgeJola/Proyecto-Grupal/assets/113150003/c5f48ee9-9c1d-4a82-8b85-79415c09b0d9) </h3>
 
 <div id='id0' />
 
@@ -44,6 +44,8 @@ Allí encontrán un pdf con  el alcance, objetivos, roles del equipo, metodolog�
 4- Modelos de Machine Learning con las librerias de Scikit-learn, Keras y TensorFlow, deployados con la libreria Streamlit
 
 5- Visualización y reportes con Google Data Looker conectado desde BigQuery
+
+
 
 ![image](https://github.com/JorgeJola/Proyecto-Grupal/assets/113150003/f2c76ade-e9e2-4cc6-ae85-b58158e49750)
 
