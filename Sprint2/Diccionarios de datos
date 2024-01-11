@@ -1,6 +1,6 @@
-DICCIONARIO DE DATOS YELP
+**DICCIONARIO DE DATOS YELP**
 
-**# YELP**
+
 1. Diccionario de Negocios
 - **business_id:** Identificador único para cada negocio en la base de datos.
 - **name:** Nombre del negocio.
