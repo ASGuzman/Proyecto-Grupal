@@ -8,8 +8,6 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.neighbors import NearestNeighbors
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # Cargar datos desde Google Cloud Storage
 bucket_name = "pf_cleaned_data"
@@ -20,7 +18,7 @@ bucket = storage_client.get_bucket(bucket_name)
 blob = bucket.blob(blob_name)
 
 # Descargar el conjunto de datos localmente
-blob.download_to_filename("modelo_df.parquet")
+blob.download_to_filename("Proyecto-Grupal/Sprint3/Modelo/modelo_df.parquet")
 
 # Realizar análisis de sentimiento usando NLTK
 sia = SentimentIntensityAnalyzer()
@@ -31,7 +29,7 @@ def obtener_polaridad(reseña):
     return sentiment_score['compound']
 
 # Leer datos
-data = pd.read_parquet("modelo_df.parquet")
+data = pd.read_parquet("Proyecto-Grupal/Sprint3/Modelo/modelo_df.parquet")
 
 # Aplicar análisis de sentimiento
 data['polaridad'] = data['text'].apply(obtener_polaridad)
@@ -53,8 +51,15 @@ data['reseña_procesada'] = data['text'].apply(procesar_texto)
 tfidf_vectorizer = TfidfVectorizer()
 tfidf_matrix = tfidf_vectorizer.fit_transform(data['reseña_procesada'])
 
+# Reducir tamaño de datos después de TF-IDF
+del data['text']
+del tfidf_vectorizer
+
 # Calcular similitud de coseno entre las reseñas
 cosine_similarities = cosine_similarity(tfidf_matrix, tfidf_matrix)
+
+# Reducir tamaño de datos después de similitud de coseno
+del tfidf_matrix
 
 # Crear un modelo de vecinos más cercanos (KNN)
 knn_model = NearestNeighbors(n_neighbors=5, metric='cosine')
@@ -82,26 +87,9 @@ def obtener_recomendaciones(nombre_ciudad, min_estrellas):
 # Streamlit App
 st.title("Recomendaciones de Restaurantes")
 
-
-# Visualización de datos
-st.subheader("Distribución de Ratings")
-fig, ax = plt.subplots()
-sns.histplot(data['avg_rating'], bins=10, kde=True, ax=ax)
-st.pyplot(fig)
-
 ciudad = st.selectbox("Seleccione el nombre de la ciudad:", data['city'].unique())
 min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5.0, 0.0, 0.5)
 
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(ciudad, min_estrellas)
     st.success(f"Top 3 Recomendaciones para {ciudad}: {recomendaciones}")
-
-# Añade más elementos según tus preferencias
-st.markdown("## Sobre nosotros")
-st.info("Somos un equipo dedicado a proporcionar las mejores recomendaciones de restaurantes.")
-
-# Agrega enlaces o información adicional
-st.markdown("[Visítanos en nuestro sitio web](https://www.tusitio.com)")
-
-# Personaliza el pie de página
-st.markdown("© 2024 Tu Empresa. Todos los derechos reservados.")
