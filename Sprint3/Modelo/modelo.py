@@ -51,19 +51,19 @@ data['reseña_procesada'] = data['text'].apply(procesar_texto)
 tfidf_vectorizer = TfidfVectorizer()
 tfidf_matrix = tfidf_vectorizer.fit_transform(data['reseña_procesada'])
 
-# Reducir tamaño de datos después de TF-IDF
-del data['text']
-del tfidf_vectorizer
-
 # Calcular similitud de coseno entre las reseñas
 cosine_similarities = cosine_similarity(tfidf_matrix, tfidf_matrix)
-
-# Reducir tamaño de datos después de similitud de coseno
-del tfidf_matrix
 
 # Crear un modelo de vecinos más cercanos (KNN)
 knn_model = NearestNeighbors(n_neighbors=5, metric='cosine')
 knn_model.fit(tfidf_matrix)
+
+# Reducir tamaño de datos después de TF-IDF
+del data['text']
+del tfidf_vectorizer
+
+# Reducir tamaño de datos después de similitud de coseno
+del tfidf_matrix
 
 # Función para obtener recomendaciones
 def obtener_recomendaciones(nombre_ciudad, min_estrellas):
@@ -93,3 +93,4 @@ min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(ciudad, min_estrellas)
     st.success(f"Top 3 Recomendaciones para {ciudad}: {recomendaciones}")
+
