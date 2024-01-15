@@ -18,7 +18,7 @@ bucket = storage_client.get_bucket(bucket_name)
 blob = bucket.blob(blob_name)
 
 # Descargar el conjunto de datos localmente
-blob.download_to_filename("Proyecto-Grupal/Sprint3/Modelo/modelo_df.parquet")
+blob.download_to_filename("Sprint3/Modelo/modelo_df.parquet")
 
 # Realizar análisis de sentimiento usando NLTK
 sia = SentimentIntensityAnalyzer()
@@ -29,7 +29,7 @@ def obtener_polaridad(reseña):
     return sentiment_score['compound']
 
 # Leer datos
-data = pd.read_parquet("Proyecto-Grupal/Sprint3/Modelo/modelo_df.parquet")
+data = pd.read_parquet("Sprint3/Modelo/modelo_df.parquet")
 
 # Aplicar análisis de sentimiento
 data['polaridad'] = data['text'].apply(obtener_polaridad)
