@@ -23,47 +23,35 @@ blob.download_to_filename("Sprint3/Modelo/modelo_df.parquet")
 # Realizar análisis de sentimiento usando NLTK
 sia = SentimentIntensityAnalyzer()
 
-# Función para obtener polaridad
-def obtener_polaridad(reseña):
-    sentiment_score = sia.polarity_scores(reseña)
-    return sentiment_score['compound']
+# Leer datos en lotes
+chunk_size = 1000
+data_chunks = pd.read_parquet("Sprint3/Modelo/modelo_df.parquet", chunksize=chunk_size)
 
-# Leer datos
-data = pd.read_parquet("Sprint3/Modelo/modelo_df.parquet")
+# Procesar cada lote
+for data in data_chunks:
+    # Aplicar análisis de sentimiento
+    data['polaridad'] = data['text'].apply(obtener_polaridad)
 
-# Aplicar análisis de sentimiento
-data['polaridad'] = data['text'].apply(obtener_polaridad)
+    # Tokenización y lematización
+    data['reseña_procesada'] = data['text'].apply(procesar_texto)
 
-# Tokenización y lematización
-stop_words = set(stopwords.words('english'))
-lemmatizer = WordNetLemmatizer()
+    # Crear un vectorizador TF-IDF para procesar las reseñas
+    tfidf_vectorizer = TfidfVectorizer()
+    tfidf_matrix = tfidf_vectorizer.fit_transform(data['reseña_procesada'])
 
-# Función para procesar texto
-def procesar_texto(texto):
-    tokens = word_tokenize(texto.lower())
-    tokens = [lemmatizer.lemmatize(token) for token in tokens if token.isalpha() and token not in stop_words]
-    return ' '.join(tokens)
+    # Calcular similitud de coseno entre las reseñas
+    cosine_similarities = cosine_similarity(tfidf_matrix, tfidf_matrix)
 
-# Procesar texto
-data['reseña_procesada'] = data['text'].apply(procesar_texto)
+    # Crear un modelo de vecinos más cercanos (KNN)
+    knn_model = NearestNeighbors(n_neighbors=5, metric='cosine')
+    knn_model.fit(tfidf_matrix)
 
-# Crear un vectorizador TF-IDF para procesar las reseñas
-tfidf_vectorizer = TfidfVectorizer()
-tfidf_matrix = tfidf_vectorizer.fit_transform(data['reseña_procesada'])
+    # Reducir tamaño de datos después de TF-IDF
+    del data['text']
+    del tfidf_vectorizer
 
-# Calcular similitud de coseno entre las reseñas
-cosine_similarities = cosine_similarity(tfidf_matrix, tfidf_matrix)
-
-# Crear un modelo de vecinos más cercanos (KNN)
-knn_model = NearestNeighbors(n_neighbors=5, metric='cosine')
-knn_model.fit(tfidf_matrix)
-
-# Reducir tamaño de datos después de TF-IDF
-del data['text']
-del tfidf_vectorizer
-
-# Reducir tamaño de datos después de similitud de coseno
-del tfidf_matrix
+    # Reducir tamaño de datos después de similitud de coseno
+    del tfidf_matrix
 
 # Función para obtener recomendaciones
 def obtener_recomendaciones(nombre_ciudad, min_estrellas):
@@ -93,4 +81,3 @@ min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(ciudad, min_estrellas)
     st.success(f"Top 3 Recomendaciones para {ciudad}: {recomendaciones}")
-
