@@ -1,0 +1,20 @@
+# requirements.txt
+
+# Biblioteca para la interfaz web
+streamlit
+
+# Biblioteca para manipulación y análisis de datos
+pandas
+
+# Biblioteca para Google Cloud Storage
+google-cloud-storage
+
+# Biblioteca para procesamiento de lenguaje natural
+nltk
+
+# Biblioteca para aprendizaje automático
+scikit-learn
+
+# Bibliotecas para visualización de datos
+matplotlib
+seaborn
