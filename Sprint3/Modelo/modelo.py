@@ -6,7 +6,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import linear_kernel
 from sklearn.neighbors import NearestNeighbors
 
 # Cargar datos desde Google Cloud Storage
@@ -52,7 +52,7 @@ tfidf_vectorizer = TfidfVectorizer()
 tfidf_matrix = tfidf_vectorizer.fit_transform(data['reseña_procesada'])
 
 # Calcular similitud de coseno entre las reseñas
-cosine_similarities = cosine_similarity(tfidf_matrix, tfidf_matrix)
+cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
 
 # Crear un modelo de vecinos más cercanos (KNN)
 knn_model = NearestNeighbors(n_neighbors=5, metric='cosine')
