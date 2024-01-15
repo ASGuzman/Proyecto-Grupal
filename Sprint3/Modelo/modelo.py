@@ -55,6 +55,11 @@ min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5
 
 # Función para obtener recomendaciones
 def obtener_recomendaciones(nombre_ciudad, min_estrellas):
+    # Filtrar por ciudad y por cantidad mínima de estrellas
+    data_ciudad = data[(data['city'] == nombre_ciudad) & (data['avg_rating'] >= min_estrellas)]
+
+    if data_ciudad.empty:
+        return "No hay restaurantes que cumplan con los criterios."
     # Crear un vectorizador TF-IDF para procesar las reseñas
     tfidf_vectorizer = TfidfVectorizer()
     tfidf_ciudad = tfidf_vectorizer.fit_transform(data_ciudad['reseña_procesada'])
