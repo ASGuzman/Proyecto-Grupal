@@ -23,12 +23,13 @@ blob.download_to_filename("Sprint3/Modelo/modelo_df.parquet")
 # Realizar análisis de sentimiento usando NLTK
 sia = SentimentIntensityAnalyzer()
 
-# Leer datos en trozos para optimizar la memoria
-chunk_size = 1000
-data_chunks = pd.read_parquet("Sprint3/Modelo/modelo_df.parquet", chunksize=chunk_size)
+# Función para obtener polaridad
+def obtener_polaridad(reseña):
+    sentiment_score = sia.polarity_scores(reseña)
+    return sentiment_score['compound']
 
-# Concatenar trozos en un solo DataFrame
-data = pd.concat(data_chunks, ignore_index=True)
+# Leer datos
+data = pd.read_parquet("Sprint3/Modelo/modelo_df.parquet")
 
 # Aplicar análisis de sentimiento
 data['polaridad'] = data['text'].apply(obtener_polaridad)
@@ -92,4 +93,3 @@ min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(ciudad, min_estrellas)
     st.success(f"Top 3 Recomendaciones para {ciudad}: {recomendaciones}")
-
