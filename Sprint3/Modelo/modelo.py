@@ -64,6 +64,10 @@ def obtener_recomendaciones(nombre_ciudad, min_estrellas):
     tfidf_vectorizer = TfidfVectorizer()
     tfidf_ciudad = tfidf_vectorizer.fit_transform(data_ciudad['reseña_procesada'])
 
+    # Crear un modelo de vecinos más cercanos (KNN)
+    knn_model = NearestNeighbors(n_neighbors=5, metric='cosine')
+    knn_model.fit(tfidf_ciudad)
+
     # Encontrar vecinos más cercanos basados en similitud de coseno
     _, indices = knn_model.kneighbors(tfidf_ciudad)
 
