@@ -11,6 +11,9 @@ import folium
 from geopy.geocoders import Nominatim
 from google.cloud import storage
 
+import os
+print("Ruta al archivo de credenciales:", os.getenv("GOOGLE_APPLICATION_CREDENTIALS"))
+
 # Descargamos los recursos de NLTK 
 nltk.download('vader_lexicon')
 nltk.download('punkt')
