@@ -8,6 +8,8 @@ pandas
 
 # Biblioteca para Google Cloud Storage
 google-cloud-storage
+google-cloud-sdk
+
 
 # Biblioteca para procesamiento de lenguaje natural
 nltk
