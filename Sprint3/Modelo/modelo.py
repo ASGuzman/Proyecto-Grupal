@@ -12,7 +12,8 @@ from geopy.geocoders import Nominatim
 from google.cloud import storage
 
 import os
-print("Ruta al archivo de credenciales:", os.getenv("GOOGLE_APPLICATION_CREDENTIALS"))
+storage_credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = storage_credentials_path
 
 # Descargamos los recursos de NLTK 
 nltk.download('vader_lexicon')
