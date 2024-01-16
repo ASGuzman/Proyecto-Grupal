@@ -11,14 +11,22 @@ import folium
 from geopy.geocoders import Nominatim
 from google.cloud import storage
 
-import os
-storage_credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+from google.cloud import secretmanager
 
-# Verificar si la variable de entorno está definida
-if storage_credentials_path:
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = storage_credentials_path
-else:
-    st.warning("La variable de entorno GOOGLE_APPLICATION_CREDENTIALS no está definida. Asegúrate de configurarla correctamente.")
+def obtener_credenciales_desde_secret_manager(proyecto_id, secreto_id, version_id):
+    client = secretmanager.SecretManagerServiceClient()
+
+    nombre_secreto = f"projects/{proyecto_id}/secrets/{secreto_id}/versions/{version_id}"
+    response = client.access_secret_version(request={"name": nombre_secreto})
+
+    return response.payload.data.decode("UTF-8")
+
+
+proyecto_id = "prueba-410413"
+secreto_id = "streamlit"
+version_id = "1"
+
+credenciales = obtener_credenciales_desde_secret_manager(proyecto_id, secreto_id, version_id)
 
 
 # Descargamos los recursos de NLTK 
