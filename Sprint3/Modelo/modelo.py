@@ -22,6 +22,8 @@ nltk.download('wordnet')
 # Obtén las credenciales desde Streamlit Secrets
 credentials_json = st.secrets["gcs_credentials"]
 
+credentials_json_str = st.json(credentials_json)
+
 # Carga las credenciales como un diccionario
 gcs_credentials = json.loads(credentials_json)
 
