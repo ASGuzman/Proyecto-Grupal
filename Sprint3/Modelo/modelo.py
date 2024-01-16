@@ -49,6 +49,12 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
 
     if data_ciudad.empty:
         return "No hay restaurantes que cumplan con los criterios."
+    
+    # Aplicamos la función de análisis de sentimiento a la columna 'reseña'
+    data_ciudad['polaridad'] = data_ciudad['text'].apply(obtener_polaridad)
+    
+    # Aplicamos la función de procesamiento de texto a la columna 'reseña_procesada'
+    data_ciudad['reseña_procesada'] = data_ciudad['text'].apply(procesar_texto)
 
     # Creamos un vectorizador TF-IDF para procesar las reseñas
     tfidf_vectorizer = TfidfVectorizer()
