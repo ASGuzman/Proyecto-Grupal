@@ -33,7 +33,7 @@ def procesar_texto(texto):
     tokens = [lemmatizer.lemmatize(token) for token in tokens if token.isalpha() and token not in stop_words]
     return ' '.join(tokens)
 
-# Función para obtener las coordenadas (latitud, longitud) a partir de una dirección
+# Función para obtener las coordenadas (latitud, longitud) a partir de la dirección
 @st.cache_data
 def get_coordinates(address):
     geolocator = Nominatim(user_agent="mi_aplicacion_de_geocodificacion")
@@ -97,14 +97,14 @@ if st.button("Obtener Recomendaciones"):
     st.table(recomendaciones)
 
     # Crear un mapa centrado en la primera dirección
-    map_center = get_coordinates(data[data['name'] == recomendaciones[0]]['address'].values[0])
+    map_center = get_coordinates(recomendaciones.iloc[0]['address'])
     restaurant_map = folium.Map(location=map_center, zoom_start=15)
 
     # Agregar marcadores para cada restaurante recomendado en el mapa
-    for restaurante in recomendaciones:
-        coordinates = get_coordinates(data[data['name'] == restaurante]['address'].values[0])
+    for _, restaurante in recomendaciones.iterrows():
+        coordinates = get_coordinates(restaurante['address'])
         if coordinates:
-            folium.Marker(location=coordinates, popup=restaurante).add_to(restaurant_map)
+            folium.Marker(location=coordinates, popup=f"{restaurante['name']}: {restaurante['address']}").add_to(restaurant_map)
 
     # Mostrar el mapa en Streamlit
     st.title("Ubicación de Restaurantes Recomendados")
