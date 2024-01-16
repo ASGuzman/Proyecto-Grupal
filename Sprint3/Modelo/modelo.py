@@ -10,7 +10,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 from sklearn.neighbors import NearestNeighbors
 
-# Cargar datos desde Google Cloud Storage
+"""# Cargar datos desde Google Cloud Storage
 bucket_name = "pf_cleaned_data"
 blob_name = "Modelo_df/maps_concatenado2.parquet"
 # Obtener la credencial de Google Cloud desde los secrets
@@ -22,7 +22,7 @@ bucket = storage_client.get_bucket(bucket_name)
 blob = bucket.blob(blob_name)
 
 # Descargar el conjunto de datos localmente
-blob.download_to_filename("Sprint3/Modelo/modelo_df.parquet")
+blob.download_to_filename("Sprint3/Modelo/modelo_df.parquet")"""
 
 # Realizar análisis de sentimiento usando NLTK
 sia = SentimentIntensityAnalyzer()
