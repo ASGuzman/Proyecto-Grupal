@@ -12,6 +12,7 @@ import nltk
 nltk.download('vader_lexicon')
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('wordnet')
 
 # Realizamos el análisis de sentimiento usando NLTK
 sia = SentimentIntensityAnalyzer()
