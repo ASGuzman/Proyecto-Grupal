@@ -18,8 +18,6 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "Proyecto-Grupal/Sprint3/Modelo/prueba-410413-60a3d3b06006.json"
-
 # Cargamos datos desde Google Cloud Storage
 bucket_name = "pf_cleaned_data"
 blob_name = "Modelo_df/maps_concatenado3.parquet"
