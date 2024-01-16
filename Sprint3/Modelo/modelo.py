@@ -26,7 +26,7 @@ gcs_credentials = st.secrets["gcs_credentials"]
 gcs_credentials_dict = toml.loads(gcs_credentials)
 
 # Configura el cliente de almacenamiento de Google Cloud
-storage_client = storage.Client.from_service_account_info(gcs_credentials)
+storage_client = storage.Client.from_service_account_info(gcs_credentials_dict)
 
 # Cargamos datos desde Google Cloud Storage
 bucket_name = "pf_cleaned_data"
