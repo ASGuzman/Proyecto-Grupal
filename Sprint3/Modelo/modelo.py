@@ -9,6 +9,9 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 from sklearn.neighbors import NearestNeighbors
+import nltk
+nltk.download('vader_lexicon')
+
 
 
 # Realizar análisis de sentimiento usando NLTK
