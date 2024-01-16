@@ -81,8 +81,9 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
     return top3_recomendaciones[['name', 'address']]
 
 # Función para obtener las coordenadas a partir de las columnas latitude y longitude
-def get_coordinates_from_columns(latitude, longitude):
-    return [latitude, longitude]
+def get_coordinates_from_columns(df):
+    return df[['latitude', 'longitude']].values.tolist()
+
 
 # Cargamos los datos
 data = pd.read_parquet("Sprint3/Modelo/modelo_df_final2.parquet")
@@ -96,16 +97,16 @@ if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(data, ciudad, min_estrellas)
     st.markdown(f"## Recomendaciones para {ciudad}")
     st.table(recomendaciones)
-
+    
     # Creamos un mapa centrado en la primera dirección
-    restaurant_map = folium.Map(location=get_coordinates_from_columns(recomendaciones.iloc[0]['latitude'], recomendaciones.iloc[0]['longitude']), zoom_start=15)
-
+    restaurant_map = folium.Map(location=get_coordinates_from_columns(recomendaciones.iloc[[0]]), zoom_start=15)
+    
     # Agregamos marcadores para cada restaurante recomendado en el mapa
     for _, restaurante in recomendaciones.iterrows():
-        coordinates = get_coordinates_from_columns(restaurante['latitude'], restaurante['longitude'])
+        coordinates = get_coordinates_from_columns(restaurante)
         if coordinates:
             # Personalizamos el ícono y el color del marcador
-            icon = folium.Icon(color='blue', icon='cutlery', prefix='fa')  # Ícono de cubiertos azules
+            icon = folium.Icon(color='blue', icon='cutlery', prefix='fa') 
             folium.Marker(location=coordinates, popup=f"{restaurante['name']}: {restaurante['address']}", icon=icon).add_to(restaurant_map)
 
     # Guardamos el mapa como HTML para que Streamlit lo pueda leer
