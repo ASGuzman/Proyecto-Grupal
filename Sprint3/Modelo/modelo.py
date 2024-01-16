@@ -10,12 +10,15 @@ import nltk
 import folium
 from geopy.geocoders import Nominatim
 from google.cloud import storage
+import os
 
 # Descargamos los recursos de NLTK 
 nltk.download('vader_lexicon')
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "Proyecto-Grupal/Sprint3/Modelo/prueba-410413-60a3d3b06006.json"
 
 # Cargamos datos desde Google Cloud Storage
 bucket_name = "pf_cleaned_data"

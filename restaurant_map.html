@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_a9380c12eb8cf427c11b0b6ddea8fb51 {
+                #map_4e99a6f57499ba40a695a7676541e94e {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,18 +39,18 @@
 <body>
     
     
-            <div class="folium-map" id="map_a9380c12eb8cf427c11b0b6ddea8fb51" ></div>
+            <div class="folium-map" id="map_4e99a6f57499ba40a695a7676541e94e" ></div>
         
 </body>
 <script>
     
     
-            var map_a9380c12eb8cf427c11b0b6ddea8fb51 = L.map(
-                "map_a9380c12eb8cf427c11b0b6ddea8fb51",
+            var map_4e99a6f57499ba40a695a7676541e94e = L.map(
+                "map_4e99a6f57499ba40a695a7676541e94e",
                 {
-                    center: [0.0, 0.0],
+                    center: [39.928003, -75.1601058],
                     crs: L.CRS.EPSG3857,
-                    zoom: 1,
+                    zoom: 15,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -60,13 +60,67 @@
 
         
     
-            var tile_layer_9be01e4bedc792af2d1ae8d9cf397903 = L.tileLayer(
+            var tile_layer_ea5c5de9728bc3887728251e413d177b = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_9be01e4bedc792af2d1ae8d9cf397903.addTo(map_a9380c12eb8cf427c11b0b6ddea8fb51);
+            tile_layer_ea5c5de9728bc3887728251e413d177b.addTo(map_4e99a6f57499ba40a695a7676541e94e);
         
+    
+            var marker_0b11ab1a075f34ad2478208deaee73f8 = L.marker(
+                [39.928003, -75.1601058],
+                {}
+            ).addTo(map_4e99a6f57499ba40a695a7676541e94e);
+        
+    
+            var icon_52e513a21f1cd84969fcdeb17b33dba9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_0b11ab1a075f34ad2478208deaee73f8.setIcon(icon_52e513a21f1cd84969fcdeb17b33dba9);
+        
+    
+        var popup_394d44f6e84e8d9bc8ba25c6f2d92dc4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_61fa0cabd2a32eefbb19ff43a9f35def = $(`<div id="html_61fa0cabd2a32eefbb19ff43a9f35def" style="width: 100.0%; height: 100.0%;">Izzy's 33: 1703 S 9th St, Philadelphia, PA 19148</div>`)[0];
+                popup_394d44f6e84e8d9bc8ba25c6f2d92dc4.setContent(html_61fa0cabd2a32eefbb19ff43a9f35def);
+            
+        
+
+        marker_0b11ab1a075f34ad2478208deaee73f8.bindPopup(popup_394d44f6e84e8d9bc8ba25c6f2d92dc4)
+        ;
+
+        
+    
+    
+            var marker_ce3fdbdfe128cc52af05b93123b9c85a = L.marker(
+                [40.103145, -75.010241],
+                {}
+            ).addTo(map_4e99a6f57499ba40a695a7676541e94e);
+        
+    
+            var icon_6239dd79d84e4369b133503d16ab1c77 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_ce3fdbdfe128cc52af05b93123b9c85a.setIcon(icon_6239dd79d84e4369b133503d16ab1c77);
+        
+    
+        var popup_ab3c0462d7f2bdb5456aa3019d8c37d8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_240d969ab654ea58b6aeda75c71aab52 = $(`<div id="html_240d969ab654ea58b6aeda75c71aab52" style="width: 100.0%; height: 100.0%;">Watami Sushi & Hibachi Japanese Restaurant: 11000 Roosevelt Blvd #154, Philadelphia, PA 19116</div>`)[0];
+                popup_ab3c0462d7f2bdb5456aa3019d8c37d8.setContent(html_240d969ab654ea58b6aeda75c71aab52);
+            
+        
+
+        marker_ce3fdbdfe128cc52af05b93123b9c85a.bindPopup(popup_ab3c0462d7f2bdb5456aa3019d8c37d8)
+        ;
+
+        
+    
 </script>
 </html>
