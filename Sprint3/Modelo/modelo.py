@@ -33,12 +33,13 @@ def procesar_texto(texto):
     tokens = [lemmatizer.lemmatize(token) for token in tokens if token.isalpha() and token not in stop_words]
     return ' '.join(tokens)
 
+# Función para obtener las coordenadas (latitud, longitud) a partir de una dirección
+@st.cache_data
 def get_coordinates(address):
-    geolocator = Nominatim(user_agent="nombre_de_usuario")  # Reemplaza "nombre_de_usuario" con tu propio nombre de usuario
+    geolocator = Nominatim(user_agent="mi_aplicacion_de_geocodificacion")
     location = geolocator.geocode(address)
-    
     if location:
-        return location.latitude, location.longitude
+        return [location.latitude, location.longitude]
     else:
         return None
 
