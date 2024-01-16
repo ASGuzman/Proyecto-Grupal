@@ -11,7 +11,9 @@ from sklearn.metrics.pairwise import linear_kernel
 from sklearn.neighbors import NearestNeighbors
 import nltk
 nltk.download('vader_lexicon')
-
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
 
 
 # Realizar análisis de sentimiento usando NLTK
