@@ -33,7 +33,7 @@ def procesar_texto(texto):
 st.title("Recomendaciones de Restaurantes")
 
 # Cargamos los datos en un dataframe
-@st.cache
+@st.cache_data
 def cargar_datos():
     return pd.read_parquet("Sprint3/Modelo/modelo_df.parquet")
 
@@ -43,7 +43,7 @@ ciudad = st.selectbox("Seleccione el nombre de la ciudad:", data['city'].unique(
 min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5.0, 0.0, 0.5)
 
 # Función para obtener recomendaciones
-@st.cache
+@st.cache_data
 def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
     data_ciudad = data[(data['city'] == nombre_ciudad) & (data['avg_rating'] >= min_estrellas)]
 
