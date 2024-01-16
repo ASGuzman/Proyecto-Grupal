@@ -10,9 +10,7 @@ import nltk
 import folium
 from geopy.geocoders import Nominatim
 from google.cloud import storage
-import os
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "prueba-410413-60a3d3b06006.json"
 # Descargamos los recursos de NLTK 
 nltk.download('vader_lexicon')
 nltk.download('punkt')
