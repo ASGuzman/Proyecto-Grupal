@@ -22,3 +22,7 @@ scikit-learn
 # Bibliotecas para visualización de datos
 matplotlib
 seaborn
+
+# Bibliotecas para el mapa
+geopy
+folium
