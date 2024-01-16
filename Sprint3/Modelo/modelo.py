@@ -1,5 +1,5 @@
 import streamlit as st
-import json
+import toml
 import pandas as pd
 from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.tokenize import word_tokenize
@@ -20,12 +20,10 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 # Obtén las credenciales desde Streamlit Secrets
-credentials_json = st.secrets["gcs_credentials"]
+gcs_credentials = st.secrets["gcs_credentials"]
 
-credentials_json_str = st.json(credentials_json)
-
-# Carga las credenciales como un diccionario
-gcs_credentials = json.loads(credentials_json)
+# Carga las credenciales desde formato TOML
+gcs_credentials_dict = toml.loads(gcs_credentials)
 
 # Configura el cliente de almacenamiento de Google Cloud
 storage_client = storage.Client.from_service_account_info(gcs_credentials)
