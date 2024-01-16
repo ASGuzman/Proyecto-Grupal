@@ -77,14 +77,9 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
 
     return top3_recomendaciones
 
-# Función para obtener las coordenadas a partir de una dirección
-def get_coordinates(address):
-    geolocator = Nominatim(user_agent="my_geocoder")
-    location = geolocator.geocode(address)
-    if location:
-        return [location.latitude, location.longitude]
-    else:
-        return None
+# Función para obtener las coordenadas a partir de las columnas latitude y longitude
+def get_coordinates_from_columns(latitude, longitude):
+    return [latitude, longitude]
 
 # Cargamos los datos
 data = pd.read_parquet("Sprint3/Modelo/modelo_df_final2.parquet")
@@ -100,11 +95,11 @@ if st.button("Obtener Recomendaciones"):
     st.table(recomendaciones)
 
     # Creamos un mapa centrado en la primera dirección
-    restaurant_map = folium.Map(location=get_coordinates(recomendaciones.iloc[0]['address']), zoom_start=15)
+    restaurant_map = folium.Map(location=get_coordinates_from_columns(recomendaciones.iloc[0]['latitude'], recomendaciones.iloc[0]['longitude']), zoom_start=15)
 
     # Agregamos marcadores para cada restaurante recomendado en el mapa
     for _, restaurante in recomendaciones.iterrows():
-        coordinates = get_coordinates(restaurante['address'])
+        coordinates = get_coordinates_from_columns(restaurante['latitude'], restaurante['longitude'])
         if coordinates:
             # Personalizamos el ícono y el color del marcador
             icon = folium.Icon(color='blue', icon='cutlery', prefix='fa')  # Ícono de cubiertos azules
