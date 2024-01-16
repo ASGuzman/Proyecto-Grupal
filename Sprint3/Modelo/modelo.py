@@ -11,23 +11,6 @@ import folium
 from geopy.geocoders import Nominatim
 from google.cloud import storage
 
-from google.cloud import secretmanager
-
-def obtener_credenciales_desde_secret_manager(proyecto_id, secreto_id, version_id):
-    client = secretmanager.SecretManagerServiceClient()
-
-    nombre_secreto = f"projects/{proyecto_id}/secrets/{secreto_id}/versions/{version_id}"
-    response = client.access_secret_version(request={"name": nombre_secreto})
-
-    return response.payload.data.decode("UTF-8")
-
-
-proyecto_id = "prueba-410413"
-secreto_id = "streamlit"
-version_id = "1"
-
-credenciales = obtener_credenciales_desde_secret_manager(proyecto_id, secreto_id, version_id)
-
 
 # Descargamos los recursos de NLTK 
 nltk.download('vader_lexicon')
