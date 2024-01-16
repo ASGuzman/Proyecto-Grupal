@@ -12,6 +12,7 @@ google-cloud-sdk
 google-auth
 google-auth-oauthlib
 google-auth-httplib2
+google-cloud-secret-manage
 
 # Biblioteca para procesamiento de lenguaje natural
 nltk
