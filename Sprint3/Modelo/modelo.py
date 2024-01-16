@@ -72,9 +72,8 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
     # Obtenemos las recomendaciones de restaurantes con nombre y dirección
     top3_recomendaciones = data_ciudad.iloc[indices[0]].head(3)[['name', 'address']]
 
-    # Verificamos si los primeros dos elementos son iguales y, en ese caso, seleccionamos solo el primero
-    if top3_recomendaciones.iloc[0]['name'] == top3_recomendaciones.iloc[1]['name']:
-        top3_recomendaciones = top3_recomendaciones.iloc[1:]
+    # Verificamos si hay restaurantes duplicados y eliminamos duplicados
+    top3_recomendaciones = top3_recomendaciones.drop_duplicates(subset='name')
 
     return top3_recomendaciones
 
@@ -97,7 +96,7 @@ min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5
 
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(data, ciudad, min_estrellas)
-    st.markdown(f"## Top 3 Recomendaciones para {ciudad}")
+    st.markdown(f"## Recomendaciones para {ciudad}")
     st.table(recomendaciones)
 
     # Creamos un mapa centrado en la primera dirección
