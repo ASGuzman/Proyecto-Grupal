@@ -9,13 +9,24 @@ from sklearn.neighbors import NearestNeighbors
 import nltk
 import folium
 from geopy.geocoders import Nominatim
-
+from google.cloud import storage
 
 # Descargamos los recursos de NLTK 
 nltk.download('vader_lexicon')
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
+
+# Cargamos datos desde Google Cloud Storage
+bucket_name = "pf_cleaned_data"
+blob_name = "Modelo_df/maps_concatenado2.parquet"
+
+storage_client = storage.Client()
+bucket = storage_client.get_bucket(bucket_name)
+blob = bucket.blob(blob_name)
+
+# Descargamos el conjunto de datos localmente
+blob.download_to_filename("Sprint3/Modelo/modelo_df_final2.parquet")
 
 # Realizamos el análisis de sentimiento usando NLTK
 sia = SentimentIntensityAnalyzer()
@@ -77,7 +88,7 @@ def get_coordinates(address):
         return None
 
 # Cargamos los datos
-data = pd.read_parquet("Sprint3/Modelo/modelo_df_final.parquet")
+data = pd.read_parquet("Sprint3/Modelo/modelo_df_final2.parquet")
 
 # App de Streamlit
 st.title("Recomendaciones de Restaurantes")
