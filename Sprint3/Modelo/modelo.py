@@ -70,15 +70,12 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
     _, indices = knn_model.kneighbors(tfidf_ciudad)
 
     # Obtenemos las recomendaciones de restaurantes con nombre y dirección
-    top3_recomendaciones = data_ciudad.iloc[indices[0]].head(3)[['name', 'address']]
+    top3_recomendaciones = data_ciudad.iloc[indices[0]].head(3)[['name', 'address','latitude','longitude']]
 
     # Verificamos si hay restaurantes duplicados y eliminamos duplicados
     top3_recomendaciones = top3_recomendaciones.drop_duplicates(subset='name')
 
-    # Añadimos las columnas de latitude y longitude solo para la creación del mapa
-    top3_recomendaciones[['latitude', 'longitude']] = data_ciudad.iloc[indices[0]].head(3)[['latitude', 'longitude']]
-
-    return top3_recomendaciones[['name', 'address']]
+    return top3_recomendaciones
 
 # Función para obtener las coordenadas a partir de las columnas latitude y longitude
 def get_coordinates_from_columns(df):
