@@ -79,8 +79,10 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
 
 # Función para obtener las coordenadas a partir de las columnas latitude y longitude
 def get_coordinates_from_columns(df):
-    return df[['latitude', 'longitude']].values.tolist()
-
+    if len(df) == 1:
+        return df[['latitude', 'longitude']].values.flatten().tolist()
+    else:
+        return df[['latitude', 'longitude']].values.tolist()
 
 # Cargamos los datos
 data = pd.read_parquet("Sprint3/Modelo/modelo_df_final2.parquet")
@@ -97,7 +99,7 @@ if st.button("Obtener Recomendaciones"):
     
     # Creamos un mapa centrado en la primera dirección
     restaurant_map = folium.Map(location=get_coordinates_from_columns(recomendaciones.iloc[[0]]), zoom_start=15)
-    
+
     # Agregamos marcadores para cada restaurante recomendado en el mapa
     for _, restaurante in recomendaciones.iterrows():
         coordinates = get_coordinates_from_columns(restaurante)
