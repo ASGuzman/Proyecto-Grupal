@@ -86,7 +86,7 @@ min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5
 
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(data, ciudad, min_estrellas)
-    st.markdown(f"Top 3 Recomendaciones para {ciudad}")
+    st.markdown(f"## Top 3 Recomendaciones para {ciudad}")
     st.table(recomendaciones)
 
     # Creamos un mapa centrado en la primera dirección
@@ -96,7 +96,9 @@ if st.button("Obtener Recomendaciones"):
     for _, restaurante in recomendaciones.iterrows():
         coordinates = get_coordinates(restaurante['address'])
         if coordinates:
-            folium.Marker(location=coordinates, popup=f"{restaurante['name']}: {restaurante['address']}").add_to(restaurant_map)
+            # Personalizamos el ícono y el color del marcador
+            icon = folium.Icon(color='blue', icon='cutlery', prefix='fa')  # Ícono de cubiertos azules
+            folium.Marker(location=coordinates, popup=f"{restaurante['name']}: {restaurante['address']}", icon=icon).add_to(restaurant_map)
 
     # Guardamos el mapa como HTML para que Streamlit lo pueda leer
     restaurant_map.save("restaurant_map.html")
