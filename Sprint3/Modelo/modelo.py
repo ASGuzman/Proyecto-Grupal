@@ -7,8 +7,8 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
 import nltk
-from geopy.geocoders import Nominatim
 import folium
+from geopy.geocoders import Nominatim
 
 
 # Descargamos los recursos de NLTK 
@@ -33,32 +33,9 @@ def procesar_texto(texto):
     tokens = [lemmatizer.lemmatize(token) for token in tokens if token.isalpha() and token not in stop_words]
     return ' '.join(tokens)
 
-# Función para obtener las coordenadas (latitud, longitud) a partir de la dirección
-@st.cache_data
-def get_coordinates(address):
-    geolocator = Nominatim(user_agent="mi_aplicacion_de_geocodificacion")
-    location = geolocator.geocode(address)
-    if location:
-        return [location.latitude, location.longitude]
-    else:
-        return None
-
-# Creamos la app de Streamlit
-st.title("Recomendaciones de Restaurantes")
-
-# Cargamos los datos en un dataframe
-@st.cache_data
-def cargar_datos():
-    return pd.read_parquet("Sprint3/Modelo/modelo_df_final.parquet")
-
-data = cargar_datos()
-
-ciudad = st.selectbox("Seleccione el nombre de la ciudad:", data['city'].unique())
-min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5.0, 0.0, 0.5)
-
 # Función para obtener recomendaciones
 @st.cache_data
-def obtener_recomendaciones(data,nombre_ciudad, min_estrellas):
+def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
     data_ciudad = data[(data['city'] == nombre_ciudad) & (data['avg_rating'] >= min_estrellas)]
 
     if data_ciudad.empty:
@@ -90,23 +67,41 @@ def obtener_recomendaciones(data,nombre_ciudad, min_estrellas):
 
     return top3_recomendaciones
 
+# Función para obtener las coordenadas a partir de una dirección
+def get_coordinates(address):
+    geolocator = Nominatim(user_agent="my_geocoder")
+    location = geolocator.geocode(address)
+    if location:
+        return [location.latitude, location.longitude]
+    else:
+        return None
+
+# Cargamos los datos
+data = pd.read_parquet("Sprint3/Modelo/modelo_df_final.parquet")
+
+# App de Streamlit
+st.title("Recomendaciones de Restaurantes")
+ciudad = st.selectbox("Seleccione el nombre de la ciudad:", data['city'].unique())
+min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5.0, 0.0, 0.5)
+
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(data, ciudad, min_estrellas)
-    # Mostramos las recomendaciones en una tabla
     st.markdown(f"Top 3 Recomendaciones para {ciudad}")
     st.table(recomendaciones)
 
-    # Crear un mapa centrado en la primera dirección
-    map_center = get_coordinates(recomendaciones.iloc[0]['address'])
-    restaurant_map = folium.Map(location=map_center, zoom_start=15)
+    # Creamos un mapa centrado en la primera dirección
+    restaurant_map = folium.Map(location=get_coordinates(recomendaciones.iloc[0]['address']), zoom_start=15)
 
-    # Agregar marcadores para cada restaurante recomendado en el mapa
+    # Agregamos marcadores para cada restaurante recomendado en el mapa
     for _, restaurante in recomendaciones.iterrows():
         coordinates = get_coordinates(restaurante['address'])
         if coordinates:
             folium.Marker(location=coordinates, popup=f"{restaurante['name']}: {restaurante['address']}").add_to(restaurant_map)
-    
-    # Guardar el mapa como HTML
-    mapa_html = restaurant_map._repr_html_()
-    # Mostrar el mapa en Streamlit
-    st.markdown(mapa_html, unsafe_allow_html=True)
+
+    # Guardamos el mapa como HTML para que Streamlit lo pueda leer
+    restaurant_map.save("restaurant_map.html")
+
+    # Mostramos el mapa en Streamlit mediante el componente HTML
+    with open("restaurant_map.html", "r", encoding="utf-8") as file:
+        map_html = file.read()
+        st.components.v1.html(map_html, height=700)
