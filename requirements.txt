@@ -27,3 +27,5 @@ seaborn
 # Bibliotecas para el mapa
 geopy
 folium
+
+st-files-connection
