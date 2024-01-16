@@ -75,7 +75,10 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
     # Verificamos si hay restaurantes duplicados y eliminamos duplicados
     top3_recomendaciones = top3_recomendaciones.drop_duplicates(subset='name')
 
-    return top3_recomendaciones
+    # Añadimos las columnas de latitude y longitude solo para la creación del mapa
+    top3_recomendaciones[['latitude', 'longitude']] = data_ciudad.iloc[indices[0]].head(3)[['latitude', 'longitude']]
+
+    return top3_recomendaciones[['name', 'address']]
 
 # Función para obtener las coordenadas a partir de las columnas latitude y longitude
 def get_coordinates_from_columns(latitude, longitude):
