@@ -19,7 +19,7 @@ nltk.download('wordnet')
 
 # Cargamos datos desde Google Cloud Storage
 bucket_name = "pf_cleaned_data"
-blob_name = "Modelo_df/maps_concatenado2.parquet"
+blob_name = "Modelo_df/maps_concatenado3.parquet"
 
 storage_client = storage.Client()
 bucket = storage_client.get_bucket(bucket_name)
