@@ -20,10 +20,10 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 # Obtén las credenciales desde Streamlit Secrets
-gcs_credentials = st.secrets["gcs_credentials"]
+credentials_toml = st.secrets["gcs_credentials"]
 
-# Carga las credenciales desde formato TOML
-gcs_credentials_dict = toml.loads(gcs_credentials)
+# Carga las credenciales desde el formato TOML
+gcs_credentials_dict = toml.loads(credentials_toml)
 
 # Configura el cliente de almacenamiento de Google Cloud
 storage_client = storage.Client.from_service_account_info(gcs_credentials_dict)
