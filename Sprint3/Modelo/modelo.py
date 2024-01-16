@@ -105,7 +105,8 @@ if st.button("Obtener Recomendaciones"):
         coordinates = get_coordinates(restaurante['address'])
         if coordinates:
             folium.Marker(location=coordinates, popup=f"{restaurante['name']}: {restaurante['address']}").add_to(restaurant_map)
-
+    
+    # Guardar el mapa como HTML
+    mapa_html = restaurant_map._repr_html_()
     # Mostrar el mapa en Streamlit
-    st.title("Ubicación de Restaurantes Recomendados")
-    st.map(restaurant_map)
+    st.markdown(mapa_html, unsafe_allow_html=True)
