@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_cbc72661e72d9710bf6bc0a41a1f1467 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_cbc72661e72d9710bf6bc0a41a1f1467" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_cbc72661e72d9710bf6bc0a41a1f1467 = L.map(
+                "map_cbc72661e72d9710bf6bc0a41a1f1467",
+                {
+                    center: [25.779831, -80.2391804],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_cd69c3a6d28eaa51c8d471c7ca2cd05f = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_cd69c3a6d28eaa51c8d471c7ca2cd05f.addTo(map_cbc72661e72d9710bf6bc0a41a1f1467);
+        
+    
+            var marker_eb3d4ef5ae1520fe8dd22ed9dbb775d6 = L.marker(
+                [25.779831, -80.2391804],
+                {}
+            ).addTo(map_cbc72661e72d9710bf6bc0a41a1f1467);
+        
+    
+        var popup_9b9b9cec170df1a5467b7bbc4aa4b079 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_84e24434625b9012e15cc9dadfa42bc1 = $(`<div id="html_84e24434625b9012e15cc9dadfa42bc1" style="width: 100.0%; height: 100.0%;">Choices Cafe: 711 NW 27th Ave, Miami, FL 33125</div>`)[0];
+                popup_9b9b9cec170df1a5467b7bbc4aa4b079.setContent(html_84e24434625b9012e15cc9dadfa42bc1);
+            
+        
+
+        marker_eb3d4ef5ae1520fe8dd22ed9dbb775d6.bindPopup(popup_9b9b9cec170df1a5467b7bbc4aa4b079)
+        ;
+
+        
+    
+    
+            var marker_869f9a31f9cd7c65e6ee4b861a4bf973 = L.marker(
+                [25.733079945945946, -80.33270818918919],
+                {}
+            ).addTo(map_cbc72661e72d9710bf6bc0a41a1f1467);
+        
+    
+        var popup_575b8385fd78f73da3b29f002ef7243f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_61cc71261e54afcb6b354ecd79918004 = $(`<div id="html_61cc71261e54afcb6b354ecd79918004" style="width: 100.0%; height: 100.0%;">Mao fast food: 8438 SW 40th St, Miami, FL 33155</div>`)[0];
+                popup_575b8385fd78f73da3b29f002ef7243f.setContent(html_61cc71261e54afcb6b354ecd79918004);
+            
+        
+
+        marker_869f9a31f9cd7c65e6ee4b861a4bf973.bindPopup(popup_575b8385fd78f73da3b29f002ef7243f)
+        ;
+
+        
+    
+    
+            var marker_ebcc97358eb6e2cd74d64065c9d8926d = L.marker(
+                [25.574637, -80.3692846759678],
+                {}
+            ).addTo(map_cbc72661e72d9710bf6bc0a41a1f1467);
+        
+    
+        var popup_6cea7d225ff00f51ff9faf01f944165e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_31da98f4cce55eeb86aaeb44228d1f06 = $(`<div id="html_31da98f4cce55eeb86aaeb44228d1f06" style="width: 100.0%; height: 100.0%;">Cajio's Cuban Cuisine: 20505 S Dixie Hwy, Miami, FL 33189</div>`)[0];
+                popup_6cea7d225ff00f51ff9faf01f944165e.setContent(html_31da98f4cce55eeb86aaeb44228d1f06);
+            
+        
+
+        marker_ebcc97358eb6e2cd74d64065c9d8926d.bindPopup(popup_6cea7d225ff00f51ff9faf01f944165e)
+        ;
+
+        
+    
+</script>
+</html>
