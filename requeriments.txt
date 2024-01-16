@@ -9,7 +9,9 @@ pandas
 # Biblioteca para Google Cloud Storage
 google-cloud-storage
 google-cloud-sdk
-
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
 
 # Biblioteca para procesamiento de lenguaje natural
 nltk
