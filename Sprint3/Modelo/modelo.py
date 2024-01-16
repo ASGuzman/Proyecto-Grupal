@@ -1,4 +1,5 @@
 import streamlit as st
+import json
 import pandas as pd
 from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.tokenize import word_tokenize
@@ -18,11 +19,19 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
+# Obtén las credenciales desde Streamlit Secrets
+credentials_json = st.secrets["connections.gcs"]
+
+# Carga las credenciales como un diccionario
+gcs_credentials = json.loads(credentials_json)
+
+# Configura el cliente de almacenamiento de Google Cloud
+storage_client = storage.Client.from_service_account_info(gcs_credentials)
+
 # Cargamos datos desde Google Cloud Storage
 bucket_name = "pf_cleaned_data"
 blob_name = "Modelo_df/maps_concatenado3.parquet"
 
-storage_client = storage.Client()
 bucket = storage_client.get_bucket(bucket_name)
 blob = bucket.blob(blob_name)
 
