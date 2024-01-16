@@ -33,6 +33,15 @@ def procesar_texto(texto):
     tokens = [lemmatizer.lemmatize(token) for token in tokens if token.isalpha() and token not in stop_words]
     return ' '.join(tokens)
 
+def get_coordinates(address):
+    geolocator = Nominatim(user_agent="nombre_de_usuario")  # Reemplaza "nombre_de_usuario" con tu propio nombre de usuario
+    location = geolocator.geocode(address)
+    
+    if location:
+        return location.latitude, location.longitude
+    else:
+        return None
+
 # Creamos la app de Streamlit
 st.title("Recomendaciones de Restaurantes")
 
@@ -83,7 +92,7 @@ def obtener_recomendaciones(data,nombre_ciudad, min_estrellas):
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(data, ciudad, min_estrellas)
     # Mostramos las recomendaciones en una tabla
-    st.title(f"Top 3 Recomendaciones para {ciudad}")
+    st.markdown(f"Top 3 Recomendaciones para {ciudad}")
     st.table(recomendaciones)
 
     # Crear un mapa centrado en la primera dirección
