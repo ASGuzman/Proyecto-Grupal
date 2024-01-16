@@ -13,7 +13,13 @@ from google.cloud import storage
 
 import os
 storage_credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = storage_credentials_path
+
+# Verificar si la variable de entorno está definida
+if storage_credentials_path:
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = storage_credentials_path
+else:
+    st.warning("La variable de entorno GOOGLE_APPLICATION_CREDENTIALS no está definida. Asegúrate de configurarla correctamente.")
+
 
 # Descargamos los recursos de NLTK 
 nltk.download('vader_lexicon')
