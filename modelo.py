@@ -100,12 +100,12 @@ min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 3.5, 5
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(data, ciudad, min_estrellas)
     st.markdown(f"## Recomendaciones para {ciudad}")
-
-    # Redondeamos la columna 'Estrellas' a 1 decimal antes de mostrar en la tabla
+    # Redondeamos la columna 'Estrellas' a 1 decimal antes de mostrar la tabla
     recomendaciones['Estrellas'] = recomendaciones['Estrellas'].round(1)
-
-    # Mostrar solo las columnas 'name', 'address' y 'Estrellas' en la tabla
-    columns_to_display = ['Name', 'Address','Estrellas']
+    # Convertimos los valores de 'Estrellas' a formato de cadena con un decimal
+    recomendaciones['Estrellas'] = recomendaciones['Estrellas'].apply(lambda x: f'{x:.1f}')
+    # Mostrar solo las columnas 'Name', 'Address' y 'Estrellas' en la tabla
+    columns_to_display = ['Name', 'Address', 'Estrellas']
     st.table(recomendaciones[columns_to_display].reset_index(drop=True))
     
     # Creamos un mapa centrado en la primera dirección
