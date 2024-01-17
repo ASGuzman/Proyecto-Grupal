@@ -19,20 +19,12 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-# Lee el archivo TOML
-config = toml.load("tu_archivo.toml")
-
-# Obtén el JSON de la cadena TOML
-gcs_credentials_json = config["secrets"]["gcs_credentials"]
-
-# Carga el JSON
-gcs_credentials = json.loads(gcs_credentials_json)
 
 # Cargamos datos desde Google Cloud Storage
 bucket_name = "pf_cleaned_data"
 blob_name = "Modelo_df/maps_concatenado3.parquet"
 
-storage_client = storage.Client(gcs_credentials)
+storage_client = storage.Client()
 bucket = storage_client.get_bucket(bucket_name)
 blob = bucket.blob(blob_name)
 
