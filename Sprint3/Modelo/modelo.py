@@ -21,8 +21,6 @@ nltk.download('wordnet')
 
 # Obtén las credenciales desde Streamlit Secrets
 credentials_toml = st.secrets["gcs_credentials"]
-
-# Carga las credenciales desde el formato TOML
 gcs_credentials_dict = toml.loads(credentials_toml)
 
 # Configura el cliente de almacenamiento de Google Cloud
