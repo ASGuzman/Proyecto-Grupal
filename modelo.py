@@ -1,5 +1,4 @@
 import streamlit as st
-import toml
 import pandas as pd
 from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.tokenize import word_tokenize
@@ -12,6 +11,7 @@ import folium
 from geopy.geocoders import Nominatim
 from google.cloud import storage
 import json
+import os
 
 # Descargamos los recursos de NLTK 
 nltk.download('vader_lexicon')
@@ -29,6 +29,10 @@ bucket = storage_client.get_bucket(bucket_name)
 blob = bucket.blob(blob_name)
 
 # Descargamos el conjunto de datos localmente
+# Cargamos datos desde Google Cloud Storage (si aún no está cargado)
+parquet_file_path = "Sprint3/Modelo/modelo_df_final2.parquet"
+if not os.path.exists(parquet_file_path):
+    blob.download_to_filename(parquet_file_path)
 blob.download_to_filename("Sprint3/Modelo/modelo_df_final2.parquet")
 
 # Realizamos el análisis de sentimiento usando NLTK
@@ -96,12 +100,12 @@ ciudad = st.selectbox("Seleccione el nombre de la ciudad:", data['city'].unique(
 min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5.0, 0.0, 0.5)
 
 if st.button("Obtener Recomendaciones"):
+    # Limpiamos el mapa antes de agregar nuevos marcadores
+    restaurant_map = folium.Map(location=get_coordinates_from_columns(recomendaciones.iloc[[0]]), zoom_start=15)
+
     recomendaciones = obtener_recomendaciones(data, ciudad, min_estrellas)
     st.markdown(f"## Recomendaciones para {ciudad}")
     st.table(recomendaciones)
-    
-    # Creamos un mapa centrado en la primera dirección
-    restaurant_map = folium.Map(location=get_coordinates_from_columns(recomendaciones.iloc[[0]]), zoom_start=15)
 
     # Agregamos marcadores para cada restaurante recomendado en el mapa
     for _, restaurante in recomendaciones.iterrows():
@@ -117,4 +121,4 @@ if st.button("Obtener Recomendaciones"):
     # Mostramos el mapa en Streamlit mediante el componente HTML
     with open("restaurant_map.html", "r", encoding="utf-8") as file:
         map_html = file.read()
-        st.components.v1.html(map_html,height=700)
+        st.components.v1.html(map_html, height=700)
