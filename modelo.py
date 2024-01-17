@@ -30,10 +30,10 @@ blob = bucket.blob(blob_name)
 
 # Descargamos el conjunto de datos localmente
 # Cargamos datos desde Google Cloud Storage (si aún no está cargado)
-parquet_file_path = "Sprint3/Modelo/modelo_df_final2.parquet"
+parquet_file_path = "Sprint3/Modelo/modelo_df_final_bucket.parquet"
 if not os.path.exists(parquet_file_path):
     blob.download_to_filename(parquet_file_path)
-blob.download_to_filename("Sprint3/Modelo/modelo_df_final2.parquet")
+blob.download_to_filename("Sprint3/Modelo/modelo_df_final_bucket.parquet")
 
 # Realizamos el análisis de sentimiento usando NLTK
 sia = SentimentIntensityAnalyzer()
@@ -54,7 +54,7 @@ def procesar_texto(texto):
 # Función para obtener recomendaciones
 @st.cache_data
 def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
-    data_ciudad = data[(data['city'] == nombre_ciudad) & (data['avg_rating'] >= min_estrellas)]
+    data_ciudad = data[(data['city'] == nombre_ciudad) & (data['Estrellas'] >= min_estrellas)]
 
     if data_ciudad.empty:
         return "No hay restaurantes que cumplan con los criterios."
@@ -77,7 +77,7 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
     _, indices = knn_model.kneighbors(tfidf_ciudad)
 
     # Obtenemos las recomendaciones de restaurantes con nombre y dirección
-    top3_recomendaciones = data_ciudad.iloc[indices[0]].head(3)[['name', 'address','latitude','longitude']]
+    top3_recomendaciones = data_ciudad.iloc[indices[0]].head(3)[['Name', 'Address','latitude','longitude','Estrellas']]
 
     # Verificamos si hay restaurantes duplicados y eliminamos duplicados
     top3_recomendaciones = top3_recomendaciones.drop_duplicates(subset='name')
@@ -92,19 +92,19 @@ def get_coordinates_from_columns(df):
         return df[['latitude', 'longitude']].values.tolist()
 
 # Cargamos los datos
-data = pd.read_parquet("Sprint3/Modelo/modelo_df_final2.parquet")
+data = pd.read_parquet("Sprint3/Modelo/modelo_df_final_bucket.parquet")
 
 # App de Streamlit
 st.title("Recomendaciones de Restaurantes")
 ciudad = st.selectbox("Seleccione el nombre de la ciudad:", data['city'].unique())
-min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5.0, 0.0, 0.5)
+min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5.0, 0.0, 0.1)
 
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(data, ciudad, min_estrellas)
     st.markdown(f"## Recomendaciones para {ciudad}")
-    # Mostrar solo las columnas 'name' y 'address' en la tabla
-    columns_to_display = ['name', 'address']
-    st.table(recomendaciones[columns_to_display])
+    # Mostrar solo las columnas 'name', 'address' y 'Estrellas' en la tabla
+    columns_to_display = ['Name', 'Address','Estrellas']
+    st.table(recomendaciones[columns_to_display].reset_index(drop=True))
     
     # Creamos un mapa centrado en la primera dirección
     restaurant_map = folium.Map(location=get_coordinates_from_columns(recomendaciones.iloc[[0]]), zoom_start=15)
@@ -115,7 +115,7 @@ if st.button("Obtener Recomendaciones"):
         if coordinates:
             # Personalizamos el ícono y el color del marcador
             icon = folium.Icon(color='blue', icon='cutlery', prefix='fa') 
-            folium.Marker(location=coordinates, popup=f"{restaurante['name']}: {restaurante['address']}", icon=icon).add_to(restaurant_map)
+            folium.Marker(location=coordinates, popup=f"{restaurante['Name']}: {restaurante['Address']}", icon=icon).add_to(restaurant_map)
 
     # Guardamos el mapa como HTML para que Streamlit lo pueda leer
     restaurant_map.save("restaurant_map.html")
