@@ -92,7 +92,7 @@ def get_coordinates_from_columns(df):
         return df[['latitude', 'longitude']].values.tolist()
 
 # Cargamos los datos
-data = pd.read_parquet("Sprint3/Modelo/modelo_df_final_bucket.parquet").sample(n=1000, random_state=42)
+data = pd.read_parquet("Sprint3/Modelo/modelo_df_final_bucket.parquet").sample(n=10000, random_state=42)
 
 # App de Streamlit
 st.title("Recomendaciones de Restaurantes")
