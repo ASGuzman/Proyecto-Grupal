@@ -19,11 +19,16 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
+gcs_credentials_dict = st.secrets["gcs_credentials"]
+
+# Crea el cliente de almacenamiento
+storage_client = storage.Client.from_service_account_info(gcs_credentials_dict)
+
 # Cargamos datos desde Google Cloud Storage
 bucket_name = "pf_cleaned_data"
 blob_name = "Modelo_df/maps_concatenado3.parquet"
 
-storage_client = storage.Client()
+
 bucket = storage_client.get_bucket(bucket_name)
 blob = bucket.blob(blob_name)
 
