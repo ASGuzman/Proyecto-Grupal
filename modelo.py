@@ -70,17 +70,15 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
     tfidf_ciudad = tfidf_vectorizer.fit_transform(data_ciudad['reseña_procesada'])
 
     # Creamos el modelo de vecinos más cercanos (KNN) utilizando como métrica la similitud de coseno
-    knn_model = NearestNeighbors(n_neighbors=5, metric='cosine')
+    knn_model = NearestNeighbors(n_neighbors=10, metric='cosine')
     knn_model.fit(tfidf_ciudad)
 
     # Encontramos los vecinos más cercanos 
     _, indices = knn_model.kneighbors(tfidf_ciudad)
 
-    # Obtenemos las recomendaciones de restaurantes con nombre y dirección
-    top3_recomendaciones = data_ciudad.iloc[indices[0]].head(3)[['Name', 'Address','latitude','longitude','Estrellas']]
-
-    # Verificamos si hay restaurantes duplicados y eliminamos duplicados
-    top3_recomendaciones = top3_recomendaciones.drop_duplicates(subset='Name')
+    # Asegúrate de que indices[0] tenga al menos 3 elementos
+    top3_recomendaciones = data_ciudad.iloc[indices[0]].head(10)[['Name', 'Address', 'latitude', 'longitude', 'Estrellas']]
+    top3_recomendaciones = top3_recomendaciones.drop_duplicates(subset='Name').head(3)
 
     return top3_recomendaciones
 
@@ -104,7 +102,7 @@ if st.button("Obtener Recomendaciones"):
     st.markdown(f"## Recomendaciones para {ciudad}")
     # Mostrar solo las columnas 'name', 'address' y 'Estrellas' en la tabla
     columns_to_display = ['Name', 'Address','Estrellas']
-    st.table(recomendaciones[columns_to_display].reset_index(drop=True))
+    st.table(recomendaciones[columns_to_display].round({'Estrellas': 1}).reset_index(drop=True))
     
     # Creamos un mapa centrado en la primera dirección
     restaurant_map = folium.Map(location=get_coordinates_from_columns(recomendaciones.iloc[[0]]), zoom_start=15)
