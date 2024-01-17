@@ -102,7 +102,9 @@ min_estrellas = st.slider("Seleccione la cantidad mínima de estrellas:", 0.0, 5
 if st.button("Obtener Recomendaciones"):
     recomendaciones = obtener_recomendaciones(data, ciudad, min_estrellas)
     st.markdown(f"## Recomendaciones para {ciudad}")
-    st.table(recomendaciones)
+    # Mostrar solo las columnas 'name' y 'address' en la tabla
+    columns_to_display = ['name', 'address']
+    st.table(recomendaciones[columns_to_display])
     
     # Creamos un mapa centrado en la primera dirección
     restaurant_map = folium.Map(location=get_coordinates_from_columns(recomendaciones.iloc[[0]]), zoom_start=15)
