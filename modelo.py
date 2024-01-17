@@ -20,14 +20,12 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 # Lee el contenido del archivo TOML
-secrets_path = "C:/Users/aylus/OneDrive/Escritorio/Proyecto_GCP/Proyecto-Grupal/.streamlit/secrets.toml"
-with open(secrets_path, "r") as file:
+# Load the credentials from the TOML file (replace with your actual path)
+with open("C:/Users/aylus/OneDrive/Escritorio/Proyecto_GCP/Proyecto-Grupal/.streamlit/secrets.toml", "r") as file:
     credentials_toml = file.read()
-
-# Carga las credenciales como un diccionario
 gcs_credentials_dict = toml.loads(credentials_toml)
 
-# Configura el cliente de almacenamiento de Google Cloud
+# Create the storage client
 storage_client = storage.Client.from_service_account_info(gcs_credentials_dict)
 
 # Cargamos datos desde Google Cloud Storage
