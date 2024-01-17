@@ -77,8 +77,8 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
     _, indices = knn_model.kneighbors(tfidf_ciudad)
 
     # Asegúrate de que indices[0] tenga al menos 3 elementos
-    top3_recomendaciones = data_ciudad.iloc[indices[0]].head(10)[['Name', 'Address', 'latitude', 'longitude', 'Estrellas']]
-    top3_recomendaciones = top3_recomendaciones.drop_duplicates(subset='Name').head(3)
+    top3_recomendaciones = data_ciudad.iloc[indices[0]].head(10)[['Nombre', 'Direccion', 'latitude', 'longitude', 'Estrellas']]
+    top3_recomendaciones = top3_recomendaciones.drop_duplicates(subset='Nombre').head(3)
 
     return top3_recomendaciones
 
@@ -105,7 +105,7 @@ if st.button("Obtener Recomendaciones"):
     # Convertimos los valores de 'Estrellas' a formato de cadena con un decimal
     recomendaciones['Estrellas'] = recomendaciones['Estrellas'].apply(lambda x: f'{x:.1f}')
     # Mostrar solo las columnas 'Name', 'Address' y 'Estrellas' en la tabla
-    columns_to_display = ['Name', 'Address', 'Estrellas']
+    columns_to_display = ['Nombre', 'Direccion', 'Estrellas']
     st.table(recomendaciones[columns_to_display].reset_index(drop=True))
     
     # Creamos un mapa centrado en la primera dirección
@@ -117,7 +117,7 @@ if st.button("Obtener Recomendaciones"):
         if coordinates:
             # Personalizamos el ícono y el color del marcador
             icon = folium.Icon(color='blue', icon='cutlery', prefix='fa') 
-            folium.Marker(location=coordinates, popup=f"{restaurante['Name']}: {restaurante['Address']}", icon=icon).add_to(restaurant_map)
+            folium.Marker(location=coordinates, popup=f"{restaurante['Nombre']}: {restaurante['Direccion']}", icon=icon).add_to(restaurant_map)
 
     # Guardamos el mapa como HTML para que Streamlit lo pueda leer
     restaurant_map.save("restaurant_map.html")
