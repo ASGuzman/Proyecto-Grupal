@@ -19,7 +19,7 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-gcs_credentials_dict = st.secrets[gcs_credentials]
+gcs_credentials_dict = st.secrets['gcs_credentials']
 
 # Crea el cliente de almacenamiento
 storage_client = storage.Client.from_service_account_info(gcs_credentials_dict)
