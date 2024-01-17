@@ -19,8 +19,12 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-# Obtén las credenciales desde Streamlit Secrets
-credentials_toml = st.secrets["gcs_credentials"]
+# Lee el contenido del archivo TOML
+secrets_path = "C:/Users/aylus/OneDrive/Escritorio/Proyecto_GCP/Proyecto-Grupal/.streamlit/secrets.toml"
+with open(secrets_path, "r") as file:
+    credentials_toml = file.read()
+
+# Carga las credenciales como un diccionario
 gcs_credentials_dict = toml.loads(credentials_toml)
 
 # Configura el cliente de almacenamiento de Google Cloud
