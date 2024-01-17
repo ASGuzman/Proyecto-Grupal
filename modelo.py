@@ -19,15 +19,6 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-# Lee el contenido del archivo TOML
-# Load the credentials from the TOML file (replace with your actual path)
-with open("C:/Users/aylus/OneDrive/Escritorio/Proyecto_GCP/Proyecto-Grupal/.streamlit/secrets.toml", "r") as file:
-    credentials_toml = file.read()
-gcs_credentials_dict = toml.loads(credentials_toml)
-
-# Create the storage client
-storage_client = storage.Client.from_service_account_info(gcs_credentials_dict)
-
 # Cargamos datos desde Google Cloud Storage
 bucket_name = "pf_cleaned_data"
 blob_name = "Modelo_df/maps_concatenado3.parquet"
