@@ -117,4 +117,4 @@ if st.button("Obtener Recomendaciones"):
     # Mostramos el mapa en Streamlit mediante el componente HTML
     with open("restaurant_map.html", "r", encoding="utf-8") as file:
         map_html = file.read()
-        st.components.v1.html(map_html, height=700)
+        st.components.v1.html(map_html,height=700)
