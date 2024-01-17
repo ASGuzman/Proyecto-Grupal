@@ -24,7 +24,7 @@ nltk.download('wordnet')
 bucket_name = "pf_cleaned_data"
 blob_name = "Modelo_df/maps_concatenado3.parquet"
 
-storage_client = storage.Client()
+storage_client = storage.Client("prueba-410413-60a3d3b06006.json")
 bucket = storage_client.get_bucket(bucket_name)
 blob = bucket.blob(blob_name)
 
