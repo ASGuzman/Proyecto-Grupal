@@ -100,7 +100,7 @@ Se presenta una aplicación interactiva diseñada para descubrir recomendaciones
    - Selecciona la ciudad de tu elección y ajusta el umbral de estrellas. Haz clic en "Obtener Recomendaciones" para descubrir sugerencias de restaurantes.
 
 4. **Acceso a la Aplicación en Línea:**
-   - [Explora recomendaciones de restaurantes aquí]([https://URL_DEL_DEPLOY_EN_RENDER](https://modelo-restaurantes.onrender.com)) para disfrutar de una experiencia gastronómica personalizada.
+   - [Explora recomendaciones de restaurantes aquí](https://modelo-restaurantes.onrender.com) para disfrutar de una experiencia gastronómica personalizada.
 
 ¡Disfruta explorando y descubriendo nuevas delicias culinarias con nuestro sistema interactivo de recomendación de restaurantes!
 
