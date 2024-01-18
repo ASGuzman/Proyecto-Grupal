@@ -67,7 +67,42 @@ Toda la documentación asociada al Data Engineering se encuentra en la Carpeta d
 
  
 ## Data Science & Analytics
-  
+  # Sistema de Recomendación de Restaurantes con Análisis de Sentimientos y Streamlit
+
+Se presenta una aplicación interactiva diseñada para descubrir recomendaciones de restaurantes, integrando técnicas avanzadas como análisis de sentimientos y vecinos más cercanos. Construida con Streamlit, la aplicación proporciona una interfaz amigable que simplifica la exploración de opciones culinarias en una ciudad específica.
+
+## Funcionalidades Clave
+
+1. **Análisis de Sentimientos:**
+   - El código realiza un análisis de sentimientos en las reseñas de restaurantes, evaluando su positividad.
+
+2. **Procesamiento de Texto:**
+   - Se aplican técnicas de procesamiento de texto, como tokenización y lematización, para comprender mejor el contenido de las reseñas.
+
+3. **Recomendaciones Personalizadas:**
+   - Mediante técnicas de aprendizaje automático, como TF-IDF y vecinos más cercanos (KNN), se generan sugerencias de restaurantes basadas en las preferencias del usuario.
+
+4. **Interfaz de Usuario Interactiva:**
+   - Streamlit proporciona una interfaz fácil de usar que permite al usuario seleccionar la ciudad de interés y ajustar el umbral mínimo de estrellas para las recomendaciones.
+
+5. **Visualización Visual:**
+   - Las recomendaciones se presentan de manera clara en una tabla clasificada y en un mapa interactivo con marcadores para cada restaurante sugerido.
+
+## Uso
+
+1. **Instalación de Dependencias:**
+   - Asegúrate de tener instaladas todas las dependencias necesarias ejecutando `pip install -r requirements.txt`.
+
+2. **Ejecución de la Aplicación:**
+   - Inicia la aplicación ejecutando `streamlit run nombre_del_archivo.py`.
+
+3. **Exploración de Recomendaciones:**
+   - Selecciona la ciudad de tu elección y ajusta el umbral de estrellas. Haz clic en "Obtener Recomendaciones" para descubrir sugerencias de restaurantes.
+
+4. **Acceso a la Aplicación en Línea:**
+   - [Explora recomendaciones de restaurantes aquí]([https://URL_DEL_DEPLOY_EN_RENDER](https://modelo-restaurantes.onrender.com)) para disfrutar de una experiencia gastronómica personalizada.
+
+¡Disfruta explorando y descubriendo nuevas delicias culinarias con nuestro sistema interactivo de recomendación de restaurantes!
 
 [volver al índice](#id0)
 
