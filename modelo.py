@@ -65,10 +65,10 @@ def obtener_recomendaciones(data, nombre_ciudad, min_estrellas):
     # Aplicamos la función de procesamiento de texto a la columna 'text'
     data_ciudad['reseña_procesada'] = data_ciudad['text'].apply(procesar_texto)
 
-    # Creamos un vectorizador TF-IDF para procesar las reseñas
+    data_ciudad['reseña_con_polaridad'] = data_ciudad['reseña_procesada'] + ' ' + data_ciudad['polaridad'].astype(str)
+    # Creamos un vectorizador TF-IDF para procesar las reseñas con polaridad
     tfidf_vectorizer = TfidfVectorizer()
-    tfidf_ciudad = tfidf_vectorizer.fit_transform(data_ciudad['reseña_procesada'])
-
+    tfidf_ciudad = tfidf_vectorizer.fit_transform(data_ciudad['reseña_con_polaridad'])
     # Creamos el modelo de vecinos más cercanos (KNN) utilizando como métrica la similitud de coseno
     knn_model = NearestNeighbors(n_neighbors=10, metric='cosine')
     knn_model.fit(tfidf_ciudad)
