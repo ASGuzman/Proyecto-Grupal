@@ -85,7 +85,7 @@ Se presenta una aplicación interactiva diseñada para descubrir recomendaciones
 4. **Interfaz de Usuario Interactiva:**
    - Streamlit proporciona una interfaz fácil de usar que permite al usuario seleccionar la ciudad de interés y ajustar el umbral mínimo de estrellas para las recomendaciones.
 
-5. **Visualización Visual:**
+5. **Visualización:**
    - Las recomendaciones se presentan de manera clara en una tabla clasificada y en un mapa interactivo con marcadores para cada restaurante sugerido.
 
 ### Uso
