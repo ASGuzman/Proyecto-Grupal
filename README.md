@@ -67,11 +67,11 @@ Toda la documentación asociada al Data Engineering se encuentra en la Carpeta d
 
  
 ## Data Science & Analytics
-  # Sistema de Recomendación de Restaurantes con Análisis de Sentimientos y Streamlit
+  ### Sistema de Recomendación de Restaurantes con Análisis de Sentimientos y Streamlit
 
 Se presenta una aplicación interactiva diseñada para descubrir recomendaciones de restaurantes, integrando técnicas avanzadas como análisis de sentimientos y vecinos más cercanos. Construida con Streamlit, la aplicación proporciona una interfaz amigable que simplifica la exploración de opciones culinarias en una ciudad específica.
 
-## Funcionalidades Clave
+### Funcionalidades Clave
 
 1. **Análisis de Sentimientos:**
    - El código realiza un análisis de sentimientos en las reseñas de restaurantes, evaluando su positividad.
@@ -88,13 +88,13 @@ Se presenta una aplicación interactiva diseñada para descubrir recomendaciones
 5. **Visualización Visual:**
    - Las recomendaciones se presentan de manera clara en una tabla clasificada y en un mapa interactivo con marcadores para cada restaurante sugerido.
 
-## Uso
+### Uso
 
 1. **Instalación de Dependencias:**
    - Asegúrate de tener instaladas todas las dependencias necesarias ejecutando `pip install -r requirements.txt`.
 
 2. **Ejecución de la Aplicación:**
-   - Inicia la aplicación ejecutando `streamlit run nombre_del_archivo.py`.
+   - Inicia la aplicación ejecutando `streamlit run modelo.py`.
 
 3. **Exploración de Recomendaciones:**
    - Selecciona la ciudad de tu elección y ajusta el umbral de estrellas. Haz clic en "Obtener Recomendaciones" para descubrir sugerencias de restaurantes.
