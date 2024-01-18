@@ -67,7 +67,7 @@ Toda la documentación asociada al Data Engineering se encuentra en la Carpeta d
 
  
 ## Data Science & Analytics
-  ### Sistema de Recomendación de Restaurantes con Análisis de Sentimientos y Streamlit
+  ### Sistema de Recomendación de Restaurantes 
 
 Se presenta una aplicación interactiva diseñada para descubrir recomendaciones de restaurantes, integrando técnicas avanzadas como análisis de sentimientos y vecinos más cercanos. Construida con Streamlit, la aplicación proporciona una interfaz amigable que simplifica la exploración de opciones culinarias en una ciudad específica.
 
