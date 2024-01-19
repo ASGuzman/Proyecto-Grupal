@@ -67,6 +67,10 @@ Toda la documentación asociada al Data Engineering se encuentra en la Carpeta d
 
  
 ## Data Science & Analytics
+
+  ### Dashboard
+Se elaboró un dashboard interactivo para una facil visualización de los datos analizados, al cual puede acceder dando click en el siguiente [enlace](https://lookerstudio.google.com/s/rKnRGUQjGl0)
+  
   ### Sistema de Recomendación de Restaurantes 
 
 Se presenta una aplicación interactiva diseñada para descubrir recomendaciones de restaurantes, integrando técnicas avanzadas como análisis de sentimientos y vecinos más cercanos. Construida con Streamlit, la aplicación proporciona una interfaz amigable que simplifica la exploración de opciones culinarias en una ciudad específica.
