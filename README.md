@@ -138,7 +138,7 @@ git clone https://github.com/JorgeJola/Proyecto-Grupal.git
  
 ## Autores   
 Aylén Sol Guzman, Data Scientist - [@ASGuzman](https://github.com/ASGuzman)  
-Maria Marcela Diaz, Data Analyst - [@](https://github.com/Emein)  
+Maria Marcela Diaz, Data Analyst - [@Emein](https://github.com/Emein)  
 Priscila Muñiz, Data Analyst - [@priscilamuniz](https://github.com/priscilamuniz)   
 Jorge Andres Jola Hernandez, Data Engineer  - [@JorgeJola](https://github.com/JorgeJola)  
 Franco Dylan Damian Luna Pedroso, Data Engineer - [@]() 
