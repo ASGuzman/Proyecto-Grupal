@@ -69,7 +69,7 @@ Toda la documentación asociada al Data Engineering se encuentra en la Carpeta d
 ## Data Science & Analytics
 
   ### Dashboard
-Se elaboró un dashboard interactivo para una facil visualización de los datos analizados, al cual puede acceder dando click en el siguiente [enlace](https://lookerstudio.google.com/s/rKnRGUQjGl0)
+Se elaboró un dashboard interactivo para una facil visualización de los datos analizados, al cual puede acceder dando click en el siguiente [enlace](https://lookerstudio.google.com/reporting/768d3268-3d06-4143-a48e-97ecd05e6cce)
   
   ### Sistema de Recomendación de Restaurantes 
 
